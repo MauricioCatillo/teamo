@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta etiqueta para responsividad -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para [Nombre de tu Esposa], Mi Eterna Valentina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Mr+De+Haviland&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    /* 💡 Estilo de lujo vintage */
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: linear-gradient(45deg, #2c0b0e, #5a1a22, #8a2c3d);
+      font-family: 'Cormorant Garamond', serif;
+      color: #fff3e6;
+    }
+
+    .container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-family: 'Mr De Haviland', cursive;
+      font-size: 4.5em;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      margin: 20px;
+      animation: heartbeat 1.5s ease-in-out infinite;
+      text-align: center;
+    }
+
+    .love-button {
+      padding: 20px 50px;
+      font-size: 1.8em;
+      background: rgba(255, 215, 186, 0.1);
+      border: 3px solid #ffd7ba;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.5s;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.3);
+    }
+
+    .love-button:hover {
+      background: rgba(255, 182, 193, 0.3);
+      transform: scale(1.15) rotate(2deg);
+    }
+
+    /* 💡 Efecto de pergamino antiguo para el mensaje */
+    #message {
+      display: none;
+      background: url('https://www.transparenttextures.com/patterns/old-paper.png');
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 90%;
+      margin: 40px auto;
+      position: relative;
+      border: 2px solid #ffd7ba;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5em;
+      color: #8a2c3d;
+      margin-top: 30px;
+    }
+
+    /* 💡 Corazones flotantes */
+    .heart {
+      position: absolute;
+      animation: floatHeart 7s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(110vh) rotate(0deg); }
+      100% { transform: translateY(-10vh) rotate(360deg); }
+    }
+
+    /* 💡 Ajustes para pantallas pequeñas */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.8em;
+      }
+      .love-button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+      }
+      #message {
+        padding: 20px;
+        font-size: 1em;
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="song" loop src="https://tu-enlace-a-Lifetime.mp3"></audio>
+  
+  <div class="container">
+    <!-- 💡 Cambia "María" por el nombre de tu esposa -->
+    <h1>¿Quieres ser mi "Lifetime Valentine", amor?</h1>
+    <button class="love-button" onclick="startRomance()">🌹 Descubre Nuestro Destino 🌹</button>
+    
+    <div id="message">
+      Querida esposita,<br><br>
+      ❤️ Aunque llevemos 2 años juntos, cada día elijo amarte de nuevo. Eres mi canción favorita, mi paz y mi aventura. ¡Felices infinitos San Valentín a mi lado! ❤️<br><br>
+      Aunque te enojes cada 3 segundos y no me tengas paciencia, te amo y te amaré siempre. Aun si no me amas, yo te seguiré amando. Perdón por mis errores y por no querer hablar de ellos; no es porque no quiera, sino porque en serio tengo miedo de herirte más. Espero que podamos ser felices para siempre, y si no es así, siempre estarás en mi corazón y en todos mis San Valentines. Te amo mi niña ❤️
+    </div>
+  </div>
+
+  <script>
+    function startRomance() {
+      // 💡 Efecto de sonido al hacer clic
+      const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-35.mp3');
+      clickSound.play();
+
+      // 💡 Iniciar música suavemente
+      const song = document.getElementById('song');
+      song.volume = 0.3;
+      song.play();
+
+      // 💡 Lluvia de pétalos de rosa
+      for (let i = 0; i < 100; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'heart';
+        petal.innerHTML = '🌸';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.fontSize = Math.random() * 20 + 15 + 'px';
+        petal.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(petal);
+      }
+
+      // 💡 Confeti en forma de corazones
+      setTimeout(() => {
+        confetti({
+          particleCount: 300,
+          spread: 150,
+          origin: { y: 0.6 },
+          shapes: ['heart'],
+          colors: ['#ff69b4', '#ff1493', '#ffffff']
+        });
+      }, 1500);
+
+      // 💡 Revelar mensaje con efecto máquina de escribir que respeta los tags HTML
+      const messageElem = document.getElementById('message');
+      const text = messageElem.innerHTML;
+      messageElem.innerHTML = '';
+      messageElem.style.display = 'block';
+
+      let i = 0;
+      const speed = 50;
+
+      function typeWriter() {
+        if (i < text.length) {
+          // Si encontramos un tag HTML, lo agregamos completo sin retraso extra
+          if (text[i] === '<') {
+            let tag = '';
+            while (i < text.length && text[i] !== '>') {
+              tag += text[i];
+              i++;
+            }
+            tag += '>'; // Incluir el caracter '>'
+            i++;
+            messageElem.innerHTML += tag;
+          } else {
+            messageElem.innerHTML += text.charAt(i);
+            i++;
+          }
+          setTimeout(typeWriter, speed);
+        }
+      }
+      typeWriter();
+
+      // 💡 Efecto de luces tenues
+      document.body.style.background = 'linear-gradient(45deg, #1a0810, #3d1722)';
+    }
+  </script>
+</body>
+</html>
